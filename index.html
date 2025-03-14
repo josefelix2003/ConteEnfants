@@ -7,20 +7,33 @@
     <style>
         body {
             display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    font-family: Arial, sans-serif;
-    background-image: url('images/foret.png'); /* Remplace par ton image */
-    background-size: cover; /* Ajuste la taille pour couvrir tout l'écran */
-    background-position: center; /* Centre l'image */
-    background-repeat: no-repeat; /* Empêche la répétition */
-    text-align: center;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+            background-image: url('images/foret.png'); /* Remplace par ton image */
+            background-size: cover; /* Ajuste la taille pour couvrir tout l'écran */
+            background-position: center; /* Centre l'image */
+            background-repeat: no-repeat; /* Empêche la répétition */
+            text-align: center;
+        }
+        #dialogue-box {
+            position: absolute; /* Positionné derrière le texte */
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80%;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8); /* Fond semi-transparent */
+            border-radius: 15px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            z-index: -1; /* Mettre la boîte en arrière-plan */
         }
         #story-text {
             font-size: 1.5em;
             margin-bottom: 20px;
+            z-index: 1; /* S'assurer que le texte reste devant la boîte de dialogue */
         }
         #story-image {
             width: 300px;
@@ -45,6 +58,9 @@
     </style>
 </head>
 <body>
+    <div id="dialogue-box">
+        <p id="dialogue-text">C'est une boîte de dialogue qui apparaît en arrière-plan !</p>
+    </div>
     <p id="story-text"></p>
     <img id="story-image" src="" alt="Illustration du conte">
     <button id="next-button">Continuer</button>
