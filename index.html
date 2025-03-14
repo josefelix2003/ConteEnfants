@@ -17,30 +17,20 @@
             background-position: center; /* Centre l'image */
             background-repeat: no-repeat; /* Empêche la répétition */
             text-align: center;
+            color: white; /* Texte en blanc */
         }
         #dialogue-box {
-            position: absolute; /* Positionné derrière le texte */
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 80%;
-            padding: 20px;
-            background-color: rgba(255, 255, 255, 0.8); /* Fond semi-transparent */
-            border-radius: 15px;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-            z-index: -1; /* Mettre la boîte en arrière-plan */
+            display: none; /* Supprime le cadre de dialogue */
         }
         #story-text {
-            font-size: 1.5em;
+            font-size: 2em; /* Texte en gros */
+            font-weight: bold;
             margin-bottom: 20px;
-            z-index: 1; /* S'assurer que le texte reste devant la boîte de dialogue */
         }
         #story-image {
             width: 300px;
             height: auto;
-            margin-bottom: 20px;
             border-radius: 10px;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
         }
         #next-button {
             padding: 10px 20px;
@@ -58,9 +48,6 @@
     </style>
 </head>
 <body>
-    <div id="dialogue-box">
-        <p id="dialogue-text">C'est une boîte de dialogue qui apparaît en arrière-plan !</p>
-    </div>
     <p id="story-text"></p>
     <img id="story-image" src="" alt="Illustration du conte">
     <button id="next-button">Continuer</button>
@@ -68,7 +55,7 @@
     <script>
         const story = [
             { text: "Il était une fois un petit garçon nommé Hansel et sa sœur Gretel.", image: "neutre.png" },
-            { text: "Leur famille était très pauvre et vivait au bord d'une grande forêt.", image: "sad.png" },
+            { text: "Leur famille était très pauvre et vivait au bord d'une grande forêt.", image: "triste.png" },
             { text: "Un jour, leurs parents décidèrent de les emmener dans la forêt...", image: "neutre.png" },
             { text: "Perdus et affamés, ils découvrirent une maison faite de pain d'épices.", image: "happy.jpg" }, 
             { text: "Ils s'approchèrent de la maison et commencèrent à manger les murs en pain d'épices.", image: "joyeux.jpg" },
@@ -79,9 +66,9 @@
             { text: "Gretel comprit le plan de la sorcière et chercha un moyen de s’échapper.", image: "déterminé.jpg" },
             { text: "Un jour, la sorcière demanda à Gretel de vérifier si le four était chaud.", image: "méfiant.jpg" },
             { text: "Mais Gretel eut une idée : elle poussa la sorcière dans le four et referma la porte !", image: "courageux.jpg" },
-            { text: "Hansel et Gretel fouillèrent la maison et trouvèrent un trésor.", image: "émerveillé.jpg" },
+            { text: "Hansel et Gretel fouillèrent la maison et trouvèrent un trésor.", image: "emerveillé.jpg" },
             { text: "Ils prirent le trésor et retrouvèrent le chemin de leur maison.", image: "soulagé.jpg" },
-            { text: "Leur père, très heureux de les revoir, pleura de joie.", image: "ému.jpg"},
+            { text: "Leur père, très heureux de les revoir, pleura de joie.", image: "triste.jpg"},
             { text: "Grâce au trésor, ils ne furent plus jamais pauvres et vécurent heureux.", image: "heureux.jpg"}
         ];
 
