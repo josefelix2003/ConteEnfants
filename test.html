@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conte Interactif</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+            background-color: #f3f4f6;
+            text-align: center;
+        }
+        #story-text {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+        }
+        #story-image {
+            width: 300px;
+            height: auto;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        #next-button {
+            padding: 10px 20px;
+            font-size: 1em;
+            background-color: #3b82f6;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #next-button:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body>
+    <p id="story-text"></p>
+    <img id="story-image" src="" alt="Illustration du conte">
+    <button id="next-button">Continuer</button>
+
+    <script>
+        const story = [
+            { text: "Il était une fois un petit garçon nommé Hansel et sa sœur Gretel.", image: "happy.png" },
+            { text: "Leur famille était très pauvre et vivait au bord d'une grande forêt.", image: "foret.jpg" },
+            { text: "Un jour, leurs parents décidèrent de les emmener dans la forêt...", image: "parents-foret.jpg" },
+            { text: "Perdus et affamés, ils découvrirent une maison faite de pain d'épices.", image: "maison-sucre.jpg" }
+        ];
+
+        let index = 0;
+        const textContainer = document.getElementById("story-text");
+        const imageContainer = document.getElementById("story-image");
+        const nextButton = document.getElementById("next-button");
+
+        function nextPart() {
+            if (index < story.length) {
+                textContainer.innerText = story[index].text;
+                imageContainer.src = story[index].image;
+                index++;
+            }
+            if (index === story.length) {
+                nextButton.disabled = true;
+            }
+        }
+
+        nextButton.addEventListener("click", nextPart);
+        nextPart();
+    </script>
+</body>
+</html>
