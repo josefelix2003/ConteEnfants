@@ -6,64 +6,83 @@
     <title>Conte Interactif</title>
     <style>
         body {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            font-family: Arial, sans-serif;
-            background-image: url('images/foret_deux frères.jpg'); /* Remplace par ton image */
-            background-size: cover; /* Ajuste la taille pour couvrir tout l'écran */
-            background-position: center; /* Centre l'image */
-            background-repeat: no-repeat; /* Empêche la répétition */
-            text-align: center;
-            color: white; /* Texte en blanc */
-        }
-        #dialogue-box {
-            background: rgba(0, 0, 0, 0.7); /* Fond semi-transparent */
-            padding: 20px;
-            border-radius: 10px;
-            max-width: 80%;
-            font-size: 1.5em;
-            font-weight: bold;
-            text-align: center;
-            margin-bottom: 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100px;
-            border: 2px solid white;
-        }
-        #story-text {
-            font-size: 1.5em; /* Texte en gros */
-            font-weight: bold;
-            margin-bottom: 20px;
-        }
-        #story-image {
-            width: 300px;
-            height: auto;
-            border-radius: 10px;
-        }
-        #next-button {
-            padding: 10px 20px;
-            font-size: 1em;
-            background-color: #3b82f6;
-            color: black;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        #next-button:disabled {
-            background-color: #ccc;
-            cursor: not-allowed;
-        }
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    font-family: Arial, sans-serif;
+    background-image: url('images/foret_deux frères.jpg'); /* Remplace par ton image */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    text-align: center;
+    color: white;
+}
+
+/* La boîte de dialogue avec l'image de rouleau */
+#dialogue-box {
+    background: url('images/scroll.jpg') no-repeat center center;
+    background-size: cover; /* Ajuste l'image */
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 80%;
+    font-size: 1.5em;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+    border: 2px solid white;
+    position: relative;
+    min-height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    overflow-y: auto;
+    max-height: 300px; /* Limite la hauteur de la boîte */
+}
+
+/* Mise en forme du texte de l'histoire */
+#story-text {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* L'image du robot */
+#story-image {
+    width: 100px;
+    height: auto;
+    border-radius: 10px;
+}
+
+/* Bouton de continuer */
+#next-button {
+    padding: 10px 20px;
+    font-size: 1em;
+    background-color: #3b82f6;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+#next-button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
     </style>
 </head>
 <body>
+    <!-- La boîte de dialogue avec un fond de rouleau -->
     <div id="dialogue-box">
         <p id="story-text"></p>
     </div>
+
+    <!-- Image du robot (en dehors de la boîte de dialogue) -->
     <img id="story-image" src="" alt="Illustration du conte">
+
+    <!-- Bouton pour continuer -->
     <button id="next-button">Continuer</button>
 
     <script>
@@ -71,7 +90,7 @@
             { text: "Il était une fois un petit garçon nommé Hansel et sa sœur Gretel.", image: "images/neutre.jpg" },
             { text: "Leur famille était très pauvre et vivait au bord d'une grande forêt.", image: "images/triste.jpg" },
             { text: "Un jour, leurs parents décidèrent de les emmener dans la forêt...", image: "images/neutre.jpg" },
-            { text: "Perdus et affamés, ils découvrirent une maison faite de pain d'épices.", image: "images/heureux.jpg" }, 
+            { text: "Perdus et affamés, ils découvrirent une maison faite de pain d'épices.", image: "images/heureux.jpg" },
             { text: "Ils s'approchèrent de la maison et commencèrent à manger les murs en pain d'épices.", image: "images/joyeux.jpg" },
             { text: "Soudain, une vieille femme sortit de la maison et les invita à entrer.", image: "images/méfiant.jpg" },
             { text: "Au début, elle semblait gentille et leur offrit de la nourriture.", image: "images/rassuré.jpg" },
@@ -82,8 +101,8 @@
             { text: "Mais Gretel eut une idée : elle poussa la sorcière dans le four et referma la porte !", image: "images/courageux.jpg" },
             { text: "Hansel et Gretel fouillèrent la maison et trouvèrent un trésor.", image: "images/emerveillé.jpg" },
             { text: "Ils prirent le trésor et retrouvèrent le chemin de leur maison.", image: "images/soulagé.jpg" },
-            { text: "Leur père, très heureux de les revoir, pleura de joie.", image: "images/triste.jpg"},
-            { text: "Grâce au trésor, ils ne furent plus jamais pauvres et vécurent heureux.", image: "images/heureux.jpg"}
+            { text: "Leur père, très heureux de les revoir, pleura de joie.", image: "images/triste.jpg" },
+            { text: "Grâce au trésor, ils ne furent plus jamais pauvres et vécurent heureux.", image: "images/heureux.jpg" }
         ];
 
         let index = 0;
