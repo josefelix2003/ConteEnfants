@@ -20,7 +20,18 @@
             color: white; /* Texte en blanc */
         }
         #dialogue-box {
-            display: none; /* Supprime le cadre de dialogue */
+            background: rgba(0, 0, 0, 0.7); /* Fond semi-transparent */
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 80%;
+            font-size: 1.5em;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100px;
         }
         #story-text {
             font-size: 3em; /* Texte en gros */
@@ -48,7 +59,9 @@
     </style>
 </head>
 <body>
-    <p id="story-text"></p>
+    <div id="dialogue-box">
+        <p id="story-text"></p>
+    </div>
     <img id="story-image" src="" alt="Illustration du conte">
     <button id="next-button">Continuer</button>
 
