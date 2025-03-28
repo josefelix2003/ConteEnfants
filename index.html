@@ -1,0 +1,56 @@
+<!DOCTYPE html> 
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conte Interactif</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-image: url('images/foret_deux frères.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            text-align: center;
+            color: white;
+            overflow: hidden;
+        }
+        #home-container {
+            text-align: center;
+        }
+        .button {
+            background-color: #3b82f6;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.5em;
+            cursor: pointer;
+            margin: 10px;
+            border-radius: 5px;
+        }
+        .button:hover {
+            background-color: #2d63b6;
+        }
+    </style>
+</head>
+<body>
+    <div id="home-container">
+        <h1>Choisissez un conte</h1>
+        <button class="button" onclick="startStory('hansel_et_gretel')">Hansel et Gretel</button>
+        <button class="button" onclick="startStory('autre_conte')">Autre Conte</button>
+    </div>
+
+    <script>
+        function startStory(storyName) {
+            localStorage.setItem('selectedStory', storyName);
+            window.location.href = 'story.html';  // Redirige vers la page du conte interactif
+        }
+    </script>
+</body>
+</html>
