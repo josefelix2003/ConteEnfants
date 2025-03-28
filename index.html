@@ -9,7 +9,7 @@ body {
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: flex-start; /* Texte en haut */
+            justify-content: flex-start;
             height: 100vh;
             margin: 0;
             font-family: Arial, sans-serif;
@@ -20,10 +20,11 @@ body {
             text-align: center;
             color: white;
             overflow: hidden;
-            padding-top: 20px; /* Espacement du haut */
+            padding-top: 20px;
+            position: relative;
         }
         #dialogue-box {
-            background: rgba(0, 0, 0, 0.7); /* Fond semi-transparent */
+            background: rgba(0, 0, 0, 0.7);
             padding: 20px;
             border-radius: 10px;
             max-width: 90%;
@@ -31,25 +32,24 @@ body {
             font-weight: bold;
             text-align: center;
             margin-bottom: 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100px;
             border: 2px solid white;
         }
         #story-text {
-            font-size: 1.5em; /* Texte en gros */
-            font-weight: bold;
-            margin-bottom: 20px;
+            margin: 0;
         }
         #story-image {
-            width: 300px;
+            width: 500px;
+            max-width: 90%;
             height: auto;
             border-radius: 10px;
+            margin-bottom: 20px;
         }
         #next-button {
-            padding: 10px 20px;
-            font-size: 1em;
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            padding: 12px 25px;
+            font-size: 1.2em;
             background-color: #3b82f6;
             color: black;
             border: none;
