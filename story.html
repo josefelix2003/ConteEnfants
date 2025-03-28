@@ -41,9 +41,11 @@
             width: 300px;
             height: 300px;
             max-width: 90%;
-            object-fit: cover;
+            object-fit: contain;
             border-radius: 50%;
             border: 5px solid white;
+            padding: 15px;
+            background-color: white;
             margin-bottom: 20px;
         }
         #next-button, #prev-button {
@@ -75,7 +77,7 @@
     <div id="dialogue-box">
         <p id="story-text"></p>
     </div>
-    <img id="story-image" src="images/ton-image.jpg" alt="Illustration du conte">
+    <img id="story-image" src="" alt="Illustration du conte">
     <button id="prev-button" onclick="prevPart()">← Précédent</button>
     <button id="next-button">Continuer →</button>
 
