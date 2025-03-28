@@ -43,11 +43,8 @@
             border-radius: 10px;
             margin-bottom: 20px;
         }
-
-        #next-button {
+        #next-button, #prev-button {
             position: absolute;
-            bottom: 0;
-            right: 0;
             margin: 10px;
             padding: 12px 25px;
             font-size: 1.2em;
@@ -57,7 +54,15 @@
             border-radius: 5px;
             cursor: pointer;
         }
-        #next-button:disabled {
+        #next-button {
+            bottom: 0;
+            right: 0;
+        }
+        #prev-button {
+            bottom: 0;
+            left: 0;
+        }
+        #next-button:disabled, #prev-button:disabled {
             background-color: #ccc;
             cursor: not-allowed;
         }
@@ -68,8 +73,8 @@
         <p id="story-text"></p>
     </div>
     <img id="story-image" src="" alt="Illustration du conte">
-    <button id="prev-button">Précédent</button>
-    <button id="next-button">Continuer</button>
+    <button id="prev-button" onclick="prevPart()">← Précédent</button>
+    <button id="next-button">Continuer →</button>
 
     <script>
         const storyHanselEtGretel = [
@@ -91,34 +96,36 @@
             { text: "Grâce au trésor, ils ne furent plus jamais pauvres et vécurent heureux.", image: "images/heureux.jpg"}
         ];
 
-        let story;
-        const selectedStory = localStorage.getItem('selectedStory');
-
-        // Sélection du conte en fonction du choix de l'utilisateur
-        if (selectedStory === 'hansel_et_gretel') {
-            story = storyHanselEtGretel;
-        } else {
-            // Par défaut, utilise un autre conte ou un message d'erreur
-            story = [{ text: "Conte non trouvé.", image: "images/neutre.jpg" }];
-        }
-
         let index = 0;
         const textContainer = document.getElementById("story-text");
         const imageContainer = document.getElementById("story-image");
         const nextButton = document.getElementById("next-button");
+        const prevButton = document.getElementById("prev-button");
+
+        function updateButtons() {
+            prevButton.disabled = index <= 1;
+            nextButton.disabled = index >= storyHanselEtGretel.length;
+        }
 
         function nextPart() {
-            if (index < story.length) {
-                textContainer.innerText = story[index].text;
-                imageContainer.src = story[index].image;
+            if (index < storyHanselEtGretel.length) {
+                textContainer.innerText = storyHanselEtGretel[index].text;
+                imageContainer.src = storyHanselEtGretel[index].image;
                 index++;
             }
-            if (index === story.length) {
-                nextButton.disabled = true;
+            updateButtons();
+        }
+
+        function prevPart() {
+            if (index > 1) { 
+                index -= 2;
+                nextPart();
             }
+            updateButtons();
         }
 
         nextButton.addEventListener("click", nextPart);
+        updateButtons();
         nextPart();
     </script>
 </body>
