@@ -37,13 +37,13 @@
             margin: 0;
         }
         #story-image {
-            width: 200px;
-            height: 200px;
+            width: 230px;
+            height: 230px;
             max-width: 90%;
             object-fit: contain;
-            border-radius: 60%;
+            border-radius: 50%;
             border: 5px solid white;
-            padding: 30px;
+            padding: 20px;
             background-color: white;
             margin-bottom: 20px;
         }
@@ -113,8 +113,10 @@
 
         function nextPart() {
             if (index < storyHanselEtGretel.length) {
-                textContainer.innerText = storyHanselEtGretel[index].text;
-                imageContainer.src = storyHanselEtGretel[index].image;
+                const part = storyHanselEtGretel[index];
+                textContainer.innerText = part.text;
+                imageContainer.src = part.image;
+                document.body.style.backgroundImage = `url('${part.background}')`;
                 index++;
             }
             updateButtons();
