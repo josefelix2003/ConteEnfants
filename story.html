@@ -176,6 +176,14 @@
                     updateStory();
                 }
             }
+
+	    window.onload = function() { 
+        	const selectedStory = localStorage.getItem('selectedStory'); 
+        	if (selectedStory && stories[selectedStory]) { 
+            	selectStory(selectedStory); 
+      		} 
+   		 
+		};
         </script>
     </body>
     </html>
