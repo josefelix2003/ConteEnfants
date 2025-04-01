@@ -48,8 +48,10 @@
 
     <script>
         function startStory(storyName) {
+            // Enregistre l'histoire choisie dans le localStorage
             localStorage.setItem('selectedStory', storyName);
-            window.location.href = 'story.html';  // Redirige vers la page du conte interactif
+            // Redirige vers la page du conte interactif
+            window.location.href = 'story.html'; 
         }
     </script>
 </body>
