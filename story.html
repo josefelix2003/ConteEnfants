@@ -1,68 +1,5 @@
-<!DOCTYPE html> 
-<html lang="fr"> 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Conte Interactif</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bubblegum+Sans&display=swap">
-    <style>
-        body {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-start;
-            height: 100vh;
-            margin: 0;
-            font-family: 'Bubblegum Sans', cursive;
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            text-align: center;
-            color: white;
-            overflow: hidden;
-            position: relative;
-        }
-        #dialogue-box {
-            background: rgba(0, 0, 0, 0.7);
-            padding: 15px;
-            border-radius: 10px;
-            max-width: 90%;
-            font-size: 1.4em;
-            font-weight: bold;
-            margin-top: 10px;
-            margin-bottom: 20px;
-            border: 2px solid white;
-        }
-        #story-text {
-            margin: 0;
-        }
-        #story-image {
-            width: 230px;
-            height: 230px;
-            max-width: 90%;
-            object-fit: contain;
-            border-radius: 50%;
-            border: 5px solid white;
-            padding: 20px;
-            background-color: white;
-            margin-bottom: 20px;
-        }
-        #next-button, #prev-button {
-            position: absolute;
-            margin: 10px;
-            padding: 12px 25px;
-            font-size: 1.2em;
-            background-color: #3b82f6;
-            color: black;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        #next-button {
-            bottom: 0;
-            right: 0;
-<!DOCTYPE html> 
-<html lang="fr"> 
+<!DOCTYPE html>
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -163,6 +100,7 @@
         { text: "Leur père, très heureux de les revoir, pleura de joie.", image: "images/triste.jpg", background: "images/image15.jpeg"},
         { text: "Grâce au trésor, ils ne furent plus jamais pauvres et vécurent heureux.", image: "images/heureux.jpg", background: "images/image16.jpeg"}
     ];
+
         let index = 0;
         const textContainer = document.getElementById("story-text");
         const imageContainer = document.getElementById("story-image");
