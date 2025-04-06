@@ -100,6 +100,21 @@
         { text: "Leur père, très heureux de les revoir, pleura de joie.", image: "images/triste.jpg", background: "images/image15.jpeg"},
         { text: "Grâce au trésor, ils ne furent plus jamais pauvres et vécurent heureux.", image: "images/heureux.jpg", background: "images/image16.jpeg"}
     ];
+        const storyAutreConte = [
+        { text: "Il était une fois un roi très sage dans un royaume lointain.", image: "images/neutre.jpg", background: "images/castle.jpg" },
+        { text: "Un jour, il partit à l’aventure pour trouver un remède magique.", image: "images/triste.jpg", background: "images/forêt.jpg" },
+        
+    ];
+        const selectedStory = localStorage.getItem('selectedStory');
+        let currentStory;
+        
+        if (selectedStory === 'hansel_et_gretel') {
+            currentStory = storyHanselEtGretel;
+        } else if (selectedStory === 'autre_conte') {
+            currentStory = storyAutreConte;
+        } else {
+            currentStory = []; // Par défaut, vide
+        }
 
         let index = 0;
         const textContainer = document.getElementById("story-text");
@@ -109,12 +124,12 @@
 
         function updateButtons() {
             prevButton.disabled = index <= 1;
-            nextButton.disabled = index >= storyHanselEtGretel.length;
+            nextButton.disabled = index >= currentStory.length;
         }
 
         function nextPart() {
-            if (index < storyHanselEtGretel.length) {
-                const part = storyHanselEtGretel[index];
+            if (index < currentStory.length) {
+                const part = currentStory[index];
                 textContainer.innerText = part.text;
                 imageContainer.src = part.image;
                 document.body.style.backgroundImage = `url('${part.background}')`;
