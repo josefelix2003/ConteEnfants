@@ -74,6 +74,8 @@
     </style>
 </head>
 <body>
+    <button id="home-button">🏠 Retour à l'accueil</button>  
+    
     <div id="dialogue-box">
         <p id="story-text"></p>
     </div>
@@ -198,6 +200,11 @@
         nextButton.addEventListener("click", nextPart);
         updateButtons();
         nextPart();
+
+        document.getElementById("home-button").addEventListener("click", function() {
+            window.location.href = "index.html";
+        }); 
+        
     </script>
 </body>
 </html>
