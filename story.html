@@ -99,7 +99,7 @@
         <p id="story-text"></p>
     </div>
     <img id="story-image" src="" alt="Illustration du conte">
-    <button id="prev-button" onclick="prevPart()">← Précédent</button>
+    <button id="prev-button">← Précédent</button>
     <button id="next-button">Continuer →</button>
 
     <script>
@@ -175,16 +175,15 @@
           { text: "Loup leva ses pattes : il se sentait léger, léger, léger ! Et… il était affamé !", image: "images/amoureux.jpg", background: "images/img19.jpeg" }
     
     ];
-        const selectedStory = localStorage.getItem('selectedStory');
-        let currentStory;
-        
+       const selectedStory = localStorage.getItem('selectedStory');
+        let currentStory = [];
+
         if (selectedStory === 'hansel_et_gretel') {
             currentStory = storyHanselEtGretel;
         } else if (selectedStory === 'Loup') {
             currentStory = storyLoup;
-        } else {
-            currentStory = []; // Par défaut, vide
         }
+
 
         let index = 0;
         const textContainer = document.getElementById("story-text");
@@ -192,39 +191,47 @@
         const nextButton = document.getElementById("next-button");
         const prevButton = document.getElementById("prev-button");
 
+        function showCurrentPart() {
+            const part = currentStory[index];
+            if (part) {
+                textContainer.innerText = part.text;
+                imageContainer.src = part.image;
+                imageContainer.alt = "Illustration : " + part.text.slice(0, 30) + "...";
+                document.body.style.backgroundImage = `url('${part.background}')`;
+            }
+        }
+
         function updateButtons() {
-            prevButton.disabled = index <= 1;
-            nextButton.disabled = index >= currentStory.length;
+            prevButton.disabled = index === 0;
+            nextButton.disabled = index === currentStory.length - 1;
         }
 
         function nextPart() {
-            if (index < currentStory.length) {
-                const part = currentStory[index];
-                textContainer.innerText = part.text;
-                imageContainer.src = part.image;
-                document.body.style.backgroundImage = `url('${part.background}')`;
+            if (index < currentStory.length - 1) {
                 index++;
+                showCurrentPart();
+                updateButtons();
             }
-            updateButtons();
         }
 
         function prevPart() {
-            if (index > 1) { 
-                index -= 2;
-                nextPart();
+            if (index > 0) {
+                index--;
+                showCurrentPart();
+                updateButtons();
             }
-            updateButtons();
         }
 
-        nextButton.addEventListener("click", nextPart);
+        // Initialisation
+        showCurrentPart();
         updateButtons();
-        nextPart();
 
-        document.getElementById("home-button").addEventListener("click", function() {
+        nextButton.addEventListener("click", nextPart);
+        prevButton.addEventListener("click", prevPart);
+
+        document.getElementById("home-button").addEventListener("click", function () {
             window.location.href = "index.html";
-        }); 
-        
+        });
     </script>
-<script src="app.js"></script>
 </body>
 </html>
