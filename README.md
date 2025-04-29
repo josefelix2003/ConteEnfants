@@ -43,9 +43,9 @@ Si le site ne s’affiche pas correctement, assurez-vous :
 
 On a utilisé des images prises de ces deux vidéos pour illustrer les histoires :
 
-https://youtu.be/HoNit2ORqV8?feature=shared (Hansel et Gretel)
+https://youtu.be/9WIW2sYaFMg?feature=shared (Hansel et Gretel)
 
-https://youtu.be/9WIW2sYaFMg?feature=shared (Le Loup émotif)
+https://youtu.be/HoNit2ORqV8?feature=shared (Le Loup émotif)
 
 Les images servent uniquement pour rendre les contes plus vivants, dans un but éducatif et sans but commercial.
 
